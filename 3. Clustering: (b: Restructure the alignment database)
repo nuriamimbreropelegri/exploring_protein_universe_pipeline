@@ -19,5 +19,5 @@ with open('alignment_of_sequences_from_different_folds_with_folds_filtered_by_e_
             print(e)
             print(hit)
 
-pickle.dump(lookup_se, open('./lookup_se_good_results', "wb"))
+pickle.dump(lookup_se, open('./lookup_se', "wb"))
 print("done")
