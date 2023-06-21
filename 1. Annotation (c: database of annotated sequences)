@@ -2,15 +2,16 @@
 # Create file containing the tags and the sequences of all the sequences in Gnify30 (subset of ESM atlas)
 paste -d '\n' highquality_clust30_h highquality_clust30 > highqualityclust30_tags_and_sequences
 
+
 # PYTHON 
 # Script to add the sequences to a file containing the tags of the sequences that found a hit in SCOPe
 import tqdm
-# Open the "association_scope_esmatlas" file in read mode
-with open("unique_hit.txt", "r") as hit_file:
+# Open the "association_esmatlas_scope " file in read mode
+with open("association_esmatlas_scope ", "r") as hit_file:
     hit_sequences = hit_file.readlines()
 
-# Open the "highquality_clust_combined" file in read mode
-with open("highquality_clust_combined.txt", "r") as combined_file:
+# Open the "highqualityclust30_tags_and_sequences" file in read mode
+with open("highqualityclust30_tags_and_sequences", "r") as combined_file:
     combined_lines = combined_file.readlines()
 
 # Create a dictionary to store the sequences
@@ -23,7 +24,7 @@ for i in range(0, len(combined_lines), 2):
     sequences_dict[sequence_name] = sequence
 
 # Create a new file to store the names and sequences
-output_filename = "names_and_sequences.txt"
+output_filename = "tags_and_sequences_with_a_hit_in_scope"
 total_sequences = len(hit_sequences)
 
 # Use tqdm to create a progress bar
@@ -35,7 +36,12 @@ with tqdm.tqdm(total=total_sequences, desc="Processing") as pbar:
             sequence = sequences_dict.get(sequence_name, "")
             output_file.write(sequence_name + "\n")
             output_file.write(sequence + "\n")
-            
             pbar.update(1)  # Update the progress bar
-
 print("Processing completed. Output file:", output_filename)
+
+
+# BASH
+# Convert it to fasta format
+awk 'NR % 2 == 1 {print ">" $0; next} 1' tags_and_sequences_with_a_hit_in_scope > tags_and_sequences_with_a_hit_in_scope_fasta
+# Remove any possible hidden character in the database
+tr -cd '\11\12\15\40-\176' < tags_and_sequences_with_a_hit_in_scope_fasta > tags_and_sequences_with_a_hit_in_scope_fasta_nohiddencharacters
