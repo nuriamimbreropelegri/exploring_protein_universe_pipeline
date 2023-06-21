@@ -1,9 +1,18 @@
-# CREATE DATABASES
-# Before searching, it is needed to convert the FASTA file containing query sequences and target sequences into a sequence DB.
+# CREATE DATABASES: Before searching, it is needed to convert the FASTA file containing query sequences and target sequences into a sequence DB.
 # ESM atlas foldseek data is already in a database format but SCOPe data is not. 
-# Converting SCOPe data into a sequence database: 
-mseqs createdb scope_data scopedb 
+mseqs createdb scope_data scopedb # Converting SCOPe data into a sequence database
 
+# CREATE AN INDEX FILE: an index file of the target database is computed for a fast read-in.
 mmseqs createindex scopedb tmp
+
+# ALIGNMENT STEP: the alignment consists of two steps the prefilter and the alignment.
 mmseqs search highquality_clust30 scopedb resultdb tmp
+
+# CONVERT THE RESULT DATABASE INTO A BLAST tab formatted file 
 mmseqs convertalis highquality_clust30 scopedb resultdb resultDB.m8 
+
+###
+The file is formatted as a tab-separated list with 12 columns: (1,2) identifiers for query and target
+sequences/profiles, (3) sequence identity, (4) alignment length, (5) number of mismatches, (6) number of gap openings, (7-8, 9-10) domain start and end-position in query and in target, (11) E-value,
+and (12) bit score.
+###
