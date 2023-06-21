@@ -48,4 +48,4 @@ print("Processing completed. Output file:", output_filename)
 # Convert it to fasta format
 awk 'NR % 2 == 1 {print ">" $0; next} 1' tags_and_sequences_with_a_hit_in_scope > tags_and_sequences_with_a_hit_in_scope_fasta
 # Remove any possible hidden character in the database
-tr -cd '\11\12\15\40-\176' < tags_and_sequences_with_a_hit_in_scope_fasta > tags_and_sequences_with_a_hit_in_scope_fasta_nohiddencharacters
+tr -cd '\11\12\15\40-\176' < tags_and_sequences_with_a_hit_in_scope_fasta > tags_and_sequences_with_a_hit_in_scope_fasta_nohidden
