@@ -1,8 +1,8 @@
 ## BASH ##
 
 # Keep the first coincidence in the alignment (lower e-value)
-awk -F"\t" '{ split($1, fields, "."); if (!seen[fields[1]]) { print; seen[fields[1]]=1 } }' resultsdb.m8 > association_esmatlas_scope
-awk '{ match($2, /[[:alpha:]]\.[[:digit:]]+\.[[:digit:]]+/); print $1, substr($2, RSTART, RLENGTH) }' association_esmatlas_scope
+awk -F"\t" '{ split($1, fields, "."); if (!seen[fields[1]]) { print; seen[fields[1]]=1 } }' scope_esmatlas_filtered > association_scope_esmatlas
+awk '{ match($2, /[[:alpha:]]\.[[:digit:]]+\.[[:digit:]]+/); print $1, substr($2, RSTART, RLENGTH) }' association_scope_esmatlas
 sed 's/\.[^.]*$//' association_esmatlas_scope
 
 # Calculate the most reppeated domain:
