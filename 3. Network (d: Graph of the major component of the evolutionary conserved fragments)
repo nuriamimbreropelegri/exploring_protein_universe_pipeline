@@ -1,1 +1,119 @@
+from graph_tool.all import *
+import os
+import numpy as np
+from typing import Tuple
+from graph_tool.draw import graph_draw
+import time
 
+alignment_file = "alignment_file_clustered"  
+start_time = time.time()
+
+
+color_mapping = {
+    'a': 'orange',
+    'b': 'lightblue',
+    'c': 'darkblue',
+    'd': 'darkgreen',
+    'e': 'red',
+    'f': 'pink',
+    'g': 'lightgreen'
+}
+
+#Create a list that contains the nodes (edges) of the network
+
+nodesfile = open("nodes", "r")
+nodes = nodesfile.readlines()
+
+graph=Graph(directed = False)
+
+# NODE PROPERTIES
+graph.vp.cluster = graph.new_vertex_property("string")
+graph.vp.scopclass = graph.new_vertex_property("string")
+graph.vp.fold = graph.new_vertex_property("string")
+graph.vp.start = graph.new_vertex_property("vector<int>")
+graph.vp.end = graph.new_vertex_property("vector<int>")
+graph.vp.node_color = graph.new_vertex_property("string")
+
+# EDGE PROPERTIES
+graph.ep.evalue = graph.new_edge_property("float")
+graph.ep.id = graph.new_edge_property("int")
+graph.ep.ident = graph.new_edge_property("float")
+graph.ep.cols = graph.new_edge_property("int")
+
+node_dict = {}
+for node in nodes:
+    v = graph.add_vertex()
+    graph.vp.cluster[v] = node.strip()
+    node_dict[node.strip()] = v
+    
+nodesfile.close()
+
+
+# ITERATE OVER ALL THE HITS
+with open(alignment_file, "r") as file:
+    for line in file:
+        # Extract information from the columns of the file
+        line = line.strip().split("\t")
+        
+        ID = int(line[0])
+        query = line[1]
+        q_cluster = line[2]
+        sbjct = line[3]
+        s_cluster = line[4]
+        q_fold_id = line[5]
+        qscopclass = q_fold_id.split('.')[0]
+        s_fold_id = line[6]
+        sscopclass = s_fold_id.split('.')[0]
+        ident = float(line[7])
+        cols = int(line[8])
+        q_start = int(line[10])
+        q_end = int(line[11])
+        s_start = int(line[12])
+        s_end = int(line[13])
+        evalue = float(line[14])
+        
+
+        
+        v1 = node_dict.get(query)
+        # Adding properties to the node
+        graph.vp.cluster[v1] = query
+        graph.vp.scopclass[v1] = qscopclass
+        graph.vp.fold[v1] = q_fold_id
+        graph.vp.start[v1].append(q_start)
+        graph.vp.end[v1].append(q_end)
+        # Assigning color based on scopclass
+        if qscopclass in color_mapping:
+            graph.vp.node_color[v1] = color_mapping[qscopclass]
+            
+        v2 = node_dict.get(sbjct)
+        # Adding properties to the node
+        graph.vp.cluster[v2] = sbjct
+        graph.vp.scopclass[v2] = sscopclass
+        graph.vp.fold[v2] = s_fold_id
+        graph.vp.start[v2].append(s_start)
+        graph.vp.end[v2].append(s_end)
+        # Assigning color based on scopclass
+        if sscopclass in color_mapping:            
+            graph.vp.node_color[v2] = color_mapping[sscopclass]
+
+        ae = graph.add_edge(v1,v2)
+
+graph.save("my_graph.gt.gz")
+
+#DRAWING THE GRAPH
+
+# All the alignments -> computationally hard for all the data
+# graph_draw(graph, vertex_color=graph.vp.node_color, vertex_fill_color=graph.vp.node_color)
+
+# Major component in the graph
+comp, a = label_components(graph)
+
+vfilt = graph.new_vertex_property('bool')
+frag = [i for i, x in enumerate(comp.a) if x == 1]
+for i in frag:
+    vfilt[i] = True
+sub = GraphView(graph, vfilt)
+graph_draw(sub, vertex_color=graph.vp.node_color, vertex_fill_color=graph.vp.node_color)
+sub.save("my_graph_major_component.gt.gz")
+
+print(time.time()-start_time)
