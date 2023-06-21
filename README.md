@@ -1,7 +1,7 @@
 # TFM
 Scripts used for my master thesis "EXPLORATION PROTEIN UNIVERSE FOR THE IDENTIFICATION OF EVOLUTIONARY CONSERVED FRAGMENTS FOR PROTEIN DESIGN"
-# 1. ANNOTATION OF ESM METAGENOMIC ATLAS SEQUENCES USING SCOPe
-## ESM ATLAS
+## 1. ANNOTATION OF ESM METAGENOMIC ATLAS SEQUENCES USING SCOPe
+### ESM ATLAS
 Download data from the high confidence subset called MGnify30 in foldseek format. It contains 36,986,627 million sequences (equivalent to 1TB size file).
 [ESM atlas data](https://github.com/facebookresearch/esm/blob/main/scripts/atlas/v0/highquality_clust30/foldseekdb.txt) 
  ## SCOPE DATABASE
