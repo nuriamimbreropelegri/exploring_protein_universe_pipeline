@@ -5,41 +5,38 @@ paste -d '\n' highquality_clust30_h highquality_clust30 > highqualityclust30_tag
 
 
 ## PYTHON ##
+import argparse
+from tqdm import tqdm  # Import tqdm for the progress bar
+parser = argparse.ArgumentParser(description="Create a file that contains the folds")
+parser.add_argument("--fold", required=True, help="Insert the file that associates folds and sequences")
+parser.add_argument("--alignment", required=True, help="Insert the file that contains alignment results")
+parser.add_argument("--output", required=True, help="Insert the name of the new file")
+args = parser.parse_args()
 
-# Script to add the sequences to a file containing the tags of the sequences that found a hit in SCOPe
-import tqdm
-# Open the "association_esmatlas_scope " file in read mode
-with open("association_esmatlas_scope ", "r") as hit_file:
-    hit_sequences = hit_file.readlines()
+# Step 1: Read in the contents of both files
+with open(args.alignment, 'r') as f1, open(args.fold, 'r') as f2:
+    first_lines = f1.readlines()
+    second_lines = f2.readlines()
 
-# Open the "highqualityclust30_tags_and_sequences" file in read mode
-with open("highqualityclust30_tags_and_sequences", "r") as combined_file:
-    combined_lines = combined_file.readlines()
+# Step 2: Parse the second file into a dictionary
+folds_dict = {}
+for line in second_lines:
+    seq_id, fold = line.split()
+    folds_dict[seq_id] = fold
 
-# Create a dictionary to store the sequences
-sequences_dict = {}
+# Step 3-5: Loop through the first file and add the fold information
+with open(args.output, 'w') as f_out:
+    with tqdm(total=len(first_lines), desc="Processing") as pbar:
+        for line in first_lines:
+            cols = line.split()
+            seq1_id, seq2_id = cols[0], cols[1]
+            seq1_fold = folds_dict.get(seq1_id, 'NA')
+            seq2_fold = folds_dict.get(seq2_id, 'NA')
+            new_line = '\t'.join([cols[0], cols[1], seq1_fold, seq2_fold, cols[2], cols[3], cols [4], cols[6], cols[7], cols[8], cols[9], cols[10]]) + '\n'
+            f_out.write(new_line)
+            pbar.update(1)
 
-# Extract the sequences from the combined file and store them in the dictionary
-for i in range(0, len(combined_lines), 2):
-    sequence_name = combined_lines[i].strip()
-    sequence = combined_lines[i + 1].strip()
-    sequences_dict[sequence_name] = sequence
-
-# Create a new file to store the names and sequences
-output_filename = "tags_and_sequences_with_a_hit_in_scope"
-total_sequences = len(hit_sequences)
-
-# Use tqdm to create a progress bar
-with tqdm.tqdm(total=total_sequences, desc="Processing") as pbar:
-    with open(output_filename, "w") as output_file:
-        # Iterate over the sequences from the "unique_hit" file
-        for hit_sequence in hit_sequences:
-            sequence_name = hit_sequence.strip()
-            sequence = sequences_dict.get(sequence_name, "")
-            output_file.write(sequence_name + "\n")
-            output_file.write(sequence + "\n")
-            pbar.update(1)  # Update the progress bar
-print("Processing completed. Output file:", output_filename)
+print("Processing complete!")
 
 
 ## BASH ##
