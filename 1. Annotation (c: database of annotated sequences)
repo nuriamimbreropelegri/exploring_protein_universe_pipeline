@@ -1,1 +1,41 @@
+# BASH
+# Create file containing the tags and the sequences of all the sequences in Gnify30 (subset of ESM atlas)
+paste -d '\n' highquality_clust30_h highquality_clust30 > highqualityclust30_tags_and_sequences
 
+# PYTHON 
+# Script to add the sequences to a file containing the tags of the sequences that found a hit in SCOPe
+import tqdm
+# Open the "association_scope_esmatlas" file in read mode
+with open("unique_hit.txt", "r") as hit_file:
+    hit_sequences = hit_file.readlines()
+
+# Open the "highquality_clust_combined" file in read mode
+with open("highquality_clust_combined.txt", "r") as combined_file:
+    combined_lines = combined_file.readlines()
+
+# Create a dictionary to store the sequences
+sequences_dict = {}
+
+# Extract the sequences from the combined file and store them in the dictionary
+for i in range(0, len(combined_lines), 2):
+    sequence_name = combined_lines[i].strip()
+    sequence = combined_lines[i + 1].strip()
+    sequences_dict[sequence_name] = sequence
+
+# Create a new file to store the names and sequences
+output_filename = "names_and_sequences.txt"
+total_sequences = len(hit_sequences)
+
+# Use tqdm to create a progress bar
+with tqdm.tqdm(total=total_sequences, desc="Processing") as pbar:
+    with open(output_filename, "w") as output_file:
+        # Iterate over the sequences from the "unique_hit" file
+        for hit_sequence in hit_sequences:
+            sequence_name = hit_sequence.strip()
+            sequence = sequences_dict.get(sequence_name, "")
+            output_file.write(sequence_name + "\n")
+            output_file.write(sequence + "\n")
+            
+            pbar.update(1)  # Update the progress bar
+
+print("Processing completed. Output file:", output_filename)
