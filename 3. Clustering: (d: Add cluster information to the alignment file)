@@ -10,7 +10,7 @@ dict_clusters = pickle.load(open('dict_clusters', 'rb'))
 print("dict_clusters_loaded")
 
 # Open the input file and output file
-with open('alignment_of_sequences_from_different_folds_with_folds_filtered_by_e_value_and_alignment_lenght_new', 'r') as input_file, open('evolutionary_conserved_fragments', 'w') as output_file:
+with open('alignment_of_sequences_from_different_folds_with_folds_filtered_by_e_value_and_alignment_lenght_new', 'r') as input_file, open('alignment_file_clustered', 'w') as output_file:
     # Process each line in the input file
     for line in input_file:
         
@@ -53,4 +53,4 @@ with open('alignment_of_sequences_from_different_folds_with_folds_filtered_by_e_
 
     
 print(time.time()-start_time, 'seconds')
-print("ouptut file called evolutionary_conserved_fragments is created")
+print("ouptut file called alignment_file_clustered is created")
