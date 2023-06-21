@@ -21,10 +21,10 @@ Code used to compute the alignment: [Code for: 1. Annotation (a: alignment )](ht
 ### COMPUTING THE ALIGNMENTS USING MMSEQS 
 1. Compute an all-against-all alignment between all the annotated sequences from ESM atlas using MMseqs2 easy search: [2. All-against-all (a: MMseqs alignment)](https://github.com/nuriamimbreropelegri/TFM/blob/main/2.%20All-against-all%20alignment%20of%20ESM%20atlas)
 ### REMOVE ALIGNMENT FROM THE SAME FOLD
-3. Remove alignment that correlate sequences from the same fold: [2. All-against-all (b: Filter by fold)](https://github.com/nuriamimbreropelegri/TFM/blob/main/2.%20All-against-all%20(b%3A%20Filter%20by%20fold))
+2. Remove alignment that correlate sequences from the same fold: [2. All-against-all (b: Filter by fold)](https://github.com/nuriamimbreropelegri/TFM/blob/main/2.%20All-against-all%20(b%3A%20Filter%20by%20fold))
 ### ADD FOLD 
-5. Add fold information from each ESM atlas sequence (using the created database containing the sequence tag and the corresponding domain) in the alignment file:  [2. All-against-all (c: Add fold information)](https://github.com/nuriamimbreropelegri/TFM/blob/main/2.%20All-against-all%20(c%3A%20Add%20fold%20information))
+3. Add fold information from each ESM atlas sequence (using the created database containing the sequence tag and the corresponding domain) in the alignment file:  [2. All-against-all (c: Add fold information)](https://github.com/nuriamimbreropelegri/TFM/blob/main/2.%20All-against-all%20(c%3A%20Add%20fold%20information))
 ### FILTER 
-7. Filter by Filter by e-value score <10^-5, HSSP curve and alignment lenght: [2. All-against-all (d: Filtering)]
+4. Filter by Filter by e-value score <10^-5, HSSP curve and alignment lenght: [2. All-against-all (d: Filtering)]
 ## 3. CLUSTERING THE FRAGMENTS
 1. Add an index number to each alignment result representing the hit ID [3. Clustering (a: add hit ID)](https://github.com/nuriamimbreropelegri/TFM/blob/main/3.%20Clustering%20(a%3A%20add%20hit%20ID))
