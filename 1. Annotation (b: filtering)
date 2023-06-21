@@ -1,6 +1,6 @@
 ## BASH
-# 1. Filtering by e-value < 10^-5
-awk '$(NF-1) < 0.00001' resultDB.m8 > scope_esmatlas_filtered_by_e_value
+# 1. Filtering by e-value <= 10^-5
+awk '$(NF-1) <= 0.00001' resultDB.m8 > scope_esmatlas_filtered_by_e_value
 
 # 2. Filtering by alignment lenght > 20 aa
  awk '$4 > 20' scope_esmatlas_filtered_by_e_value > scope_esmatlas_filtered_by_e_value_and_alignment_lenght
