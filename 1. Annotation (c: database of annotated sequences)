@@ -1,9 +1,11 @@
-# BASH
+## BASH ##
+
 # Create file containing the tags and the sequences of all the sequences in Gnify30 (subset of ESM atlas)
 paste -d '\n' highquality_clust30_h highquality_clust30 > highqualityclust30_tags_and_sequences
 
 
-# PYTHON 
+## PYTHON ##
+
 # Script to add the sequences to a file containing the tags of the sequences that found a hit in SCOPe
 import tqdm
 # Open the "association_esmatlas_scope " file in read mode
@@ -40,7 +42,8 @@ with tqdm.tqdm(total=total_sequences, desc="Processing") as pbar:
 print("Processing completed. Output file:", output_filename)
 
 
-# BASH
+## BASH ##
+
 # Convert it to fasta format
 awk 'NR % 2 == 1 {print ">" $0; next} 1' tags_and_sequences_with_a_hit_in_scope > tags_and_sequences_with_a_hit_in_scope_fasta
 # Remove any possible hidden character in the database
