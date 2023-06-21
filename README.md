@@ -12,4 +12,4 @@ Download data from the high confidence subset called MGnify30 in foldseek format
 target database, using the prefiltering and alignment modules. MMseqs2 search supports
 sequence/sequence searches. They query database is the high confidence subset MGnify30 of ESM atlas and the target database the ASTRAL SCOPe 2.08.
 Documentation of MMseqs2 User Guide: [MMseqs user Guide](https://mmseqs.com/latest/userguide.pdf) 
-Code used to compute the alignment: [Code for annotation](https://github.com/nuriamimbreropelegri/TFM/blob/main/Annotation%20of%20ESM%20atlas%20sequences)
+Code used to compute the alignment: [Code for annotation (alignment part)](https://github.com/nuriamimbreropelegri/TFM/blob/main/Annotation%20of%20ESM%20atlas%20sequences)
