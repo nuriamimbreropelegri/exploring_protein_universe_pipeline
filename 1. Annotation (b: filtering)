@@ -46,7 +46,7 @@ def filter_alignments(input_filename, output_filename):
         for alignment in filtered_alignments:
             output_file.write(alignment)
 
-# Usage example
+# Usage 
 alignment_file = 'scope_esmatlas_filtered_by_e_value_and_alignment_lenght'
 filtered_file = 'scope_esmatlas_filtered'
 
