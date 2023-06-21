@@ -14,7 +14,7 @@ sequence/sequence searches. They query database is the high confidence subset MG
 Documentation of MMseqs2 User Guide: [MMseqs user Guide](https://mmseqs.com/latest/userguide.pdf) 
 Code used to compute the alignment: [Code for: 1. Annotation (a: alignment )](https://github.com/nuriamimbreropelegri/TFM/blob/main/Annotation%20of%20ESM%20atlas%20sequences)
 ## CREATE THE ANNOTATED ESM ATLAS DATABASE
-1. Filter by e-value score <10^-5, HSSP curve and alignment lenght [1. Annotation: (b: Filtering)]
+1. Filter by e-value score <10^-5, HSSP curve and alignment lenght [1. Annotation: (b: Filtering)](https://github.com/nuriamimbreropelegri/TFM/blob/main/1.%20Annotation%20(b%3A%20filtering))
 
 2. Create a database containing the tags and the sequences of those ESM atlas sequences that found a hit in SCOPe: [1. Annotation: d: Database with tags and sequences of the annotated ESM atlas sequences]
 
