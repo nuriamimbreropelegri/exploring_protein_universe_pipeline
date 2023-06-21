@@ -4,7 +4,8 @@ import numpy as np
 from typing import Tuple
 from graph_tool.draw import graph_draw
 import time
-alignment_file = "alignment_file_clustered"  
+
+alignment_file = "alignment_file_clustered_1000000"  
 start_time = time.time()
 
 
@@ -20,7 +21,7 @@ color_mapping = {
 
 #Create a list that contains the nodes (edges) of the network
 
-nodesfile = open("nodes", "r")
+nodesfile = open("nodes_1000000", "r")
 nodes = nodesfile.readlines()
 
 graph=Graph(directed = False)
@@ -97,15 +98,12 @@ with open(alignment_file, "r") as file:
 
         ae = graph.add_edge(v1,v2)
 
-
-
-
-graph.save("my_graph.gt.gz")
+graph.save("my_graph_of_1M.gt.gz")
 
 #DRAWING THE GRAPH
 
 # All the alignments -> computationally hard for all the data
-# graph_draw(graph, vertex_color=graph.vp.node_color, vertex_fill_color=graph.vp.node_color)
+graph_draw(graph, vertex_color=graph.vp.node_color, vertex_fill_color=graph.vp.node_color)
 
 # Major component in the graph
 comp, a = label_components(graph)
@@ -116,6 +114,6 @@ for i in frag:
     vfilt[i] = True
 sub = GraphView(graph, vfilt)
 graph_draw(sub, vertex_color=graph.vp.node_color, vertex_fill_color=graph.vp.node_color)
-sub.save("my_graph_major_component.gt.gz")
+sub.save("my_graph_of_1M_major_component.gt.gz")
 
 print(time.time()-start_time)
