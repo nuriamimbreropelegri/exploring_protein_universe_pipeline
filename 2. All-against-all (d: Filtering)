@@ -56,4 +56,6 @@ print("Filtered alignments have been saved to", filtered_file)
 awk '$NF <= 1e-5' alignment_of_sequences_from_different_folds_with_folds_filtered > alignment_of_sequences_from_different_folds_with_folds_filtered_by_e_value
 
 # Filtering by alignment lenght > 20 amino acids
+ awk '$4 > 20' scope_esmatlas_filtered_by_e_value > scope_esmatlas_filtered_by_e_value_and_alignment_lenght
+
 
