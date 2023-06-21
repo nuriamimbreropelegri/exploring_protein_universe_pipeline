@@ -1,0 +1,49 @@
+## PYTHON
+# Filtering using the HSSP curve
+import math
+
+def calculate_identity_threshold(length, pid):
+    if length <= 11:
+        threshold = pid - 100
+        #print("lenght  <= 11")
+    elif length <= 450 and length >11:
+        threshold = pid - (480 * math.pow(length, (-0.32) * (1 + math.exp(-length /1000))))
+        #print("the other value is")
+        #print((480 * math.pow(length, (-0.32) * (1 + math.exp(-length /1000)))))
+        #print("length <= 450 and length >11")
+    else:
+        threshold = pid - 19.5
+        #print("lenght >450")
+    #print("threshold " + str(threshold))
+    return threshold
+   
+
+def filter_alignments(input_filename, output_filename):
+    with open(input_filename, 'r') as input_file:
+        lines = input_file.readlines()
+        filtered_alignments = []
+
+        for line in lines:
+            fields = line.strip().split('\t')
+            alignment_length = int(fields[5])
+            identity = float(fields[4])*100
+            #print(identity)
+            mismatches = int(fields[6])
+            identical_residues = int(alignment_length - mismatches)
+            pid = float(identical_residues*100/alignment_length)
+            #print("pid  " + str(pid))
+            identity_threshold = calculate_identity_threshold(alignment_length, pid)
+            if identity_threshold >= 0:
+            	filtered_alignments.append(line)
+
+    with open(output_filename, 'w') as output_file:
+        for alignment in filtered_alignments:
+            output_file.write(alignment)
+
+# Usage example
+alignment_file = 'alignment_of_sequences_from_different_folds_with_folds'
+filtered_file = 'alignment_of_sequences_from_different_folds_with_folds_filtered'
+
+filter_alignments(alignment_file, filtered_file)
+
+print("Filtered alignments have been saved to", filtered_file)
