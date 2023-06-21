@@ -36,7 +36,11 @@ Code used to compute the alignment: [Code for: 1. Annotation (a: alignment )](ht
 ### ADD CLUSTER INFORMATION TO THE ALIGNMENT DATABASE
 5. Using this dictionary of clusters, the database that containing all the pairwise alignments describing common fragments is modified. The modification of this dataset is based on the substitution of each sequence ID for a sequence ID that contains information about the cluster of the sequence in which each fragment belongs: [4. Clustering: (d: Add cluster information to the alignment database)](https://github.com/nuriamimbreropelegri/TFM/blob/main/3.%20Clustering%3A%20(d%3A%20Add%20cluster%20information%20to%20the%20alignment%20file))
 ## 3. NETWORK CONSTRUCTION OF THE EVOLUTIONARY CONSERVED FRAGMENTS IN THE PROTEIN UNIVERSE
+### NODES IN THE GRAPH OF ALL THE DATA 
 1. Create a file containing the nodes of the graph. The nodes in the graph will be all the different protein sequence names in the alignment file: [3. Network (a: nodes in the network)](https://github.com/nuriamimbreropelegri/TFM/blob/main/4.%20Network%20(a%3A%20subset%20of%201%20million%20nodes))
+### NODES IN THE GRAPH OF 1M ALIGNMENTS SUBSET
 2. Create a file containing the nodes of a subset of the alignment file (the first 1M alignments): [3. Network (b: nodes in the subset network)](https://github.com/nuriamimbreropelegri/TFM/blob/main/3.%20Network%20(b:%20nodes%20in%20the%20subset%20network))
+### NETWORK REPRESENTATION OF A SUBSET OF 1M ALIGNMENT HITS 
 3. Create a network representation of the 1M alignment hits subset: [3. Network (c: Graph of the 1M alignments subset)](https://github.com/nuriamimbreropelegri/TFM/blob/main/c:%20Graph%20of%20the%201M%20alignments%20subset))
+### NETWORK REPRESENTATION OF THE MAJOR COMPONENT OF ALL THE EVOLUTIONARY CONSERVED FRAGMENTS
 4. Create a network representation of the major component of the network of all the evolutionary conserved fragments in the annotated sequences from ESM atlas subset MGnfigy30: [3. Network (d: Graph of the major component of the evolutionary conserved fragments)](https://github.com/nuriamimbreropelegri/TFM/blob/main/3.%20Network%20(d%3A%20Graph%20of%20the%20major%20component%20of%20the%20evolutionary%20conserved%20fragments))
