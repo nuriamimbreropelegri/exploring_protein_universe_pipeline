@@ -2,7 +2,7 @@ import pickle
 
 lookup_se = {}
 
-with open('alignment_of_sequences_from_different_folds_with_folds_filtered_version4_filtered_by_e_value_new') as hits:
+with open('alignment_of_sequences_from_different_folds_with_folds_filtered_by_e_value_and_alignment_lenght_new') as hits:
     for i, hit in enumerate(hits):
         if i % 1145015 == 0:
             print("Mapped", int(i) / 114501512 * 100, "%")
@@ -19,5 +19,5 @@ with open('alignment_of_sequences_from_different_folds_with_folds_filtered_versi
             print(e)
             print(hit)
 
-pickle.dump(lookup_se, open('./lookup_se_good_results_2', "wb"))
+pickle.dump(lookup_se, open('./lookup_se_good_results', "wb"))
 print("done")
