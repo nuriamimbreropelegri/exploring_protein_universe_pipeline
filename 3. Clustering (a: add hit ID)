@@ -1,0 +1,1 @@
+awk '{print FNR-1,$0}'  OFS="\t"  alignment_of_sequences_from_different_folds_with_folds_filtered_by_e_value  > alignment_of_sequences_from_different_folds_with_folds_filtered_version4_filtered_by_e_value_new
