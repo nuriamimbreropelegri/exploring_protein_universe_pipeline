@@ -4,9 +4,9 @@ import argparse
 from tqdm import tqdm  # Import tqdm for the progress bar
 
 parser = argparse.ArgumentParser(description="Create a file that contains the folds")
-parser.add_argument("--fold", required=True, help="Insert the file that associates folds and sequences")
-parser.add_argument("--alignment", required=True, help="Insert the file that contains alignment results")
-parser.add_argument("--output", required=True, help="Insert the name of the new file")
+parser.add_argument("--fold", required=True, help="Insert the file that associates folds and sequences") # file: association_scope_esmatlas
+parser.add_argument("--alignment", required=True, help="Insert the file that contains alignment results") # file: alignment_of_sequences_from_different_folds 
+parser.add_argument("--output", required=True, help="Insert the name of the new file") # file: alignment_of_sequences_from_different_folds_with_folds
 args = parser.parse_args()
 
 # Step 1: Read in the contents of both files
