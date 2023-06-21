@@ -20,5 +20,5 @@ Code used to compute the alignment: [Code for: 1. Annotation (a: alignment )](ht
 # 2. ALL-AGAINST-ALL COMPARISON OF ESM ATLAS SEQUENCES
 ### COMPUTING THE ALIGNMENTS
 1. Compute an all-against-all alignment between all the annotated sequences from ESM atlas using MMseqs2 easy search [2. All-against-all (a: MMseqs alignment)](https://github.com/nuriamimbreropelegri/TFM/blob/main/2.%20All-against-all%20alignment%20of%20ESM%20atlas)
-2. Remove alignment that correlate sequences from the same fold [2. All-against-all (b: Filter by fold)]
+2. Remove alignment that correlate sequences from the same fold [2. All-against-all (b: Filter by fold)](https://github.com/nuriamimbreropelegri/TFM/blob/main/2.%20All-against-all%20(b%3A%20Filter%20by%20fold))
 
