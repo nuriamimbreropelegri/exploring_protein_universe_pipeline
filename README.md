@@ -15,6 +15,6 @@ Documentation of MMseqs2 User Guide: [MMseqs user Guide](https://mmseqs.com/late
 Code used to compute the alignment: [Code for: 1. Annotation (a: alignment )](https://github.com/nuriamimbreropelegri/TFM/blob/main/Annotation%20of%20ESM%20atlas%20sequences)
 ## CREATE THE ANNOTATED ESM ATLAS DATABASE
 1. Create a database containing 2 columns where in the first appears the tags of the ESM atlas sequences that found a hit in SCOPe and in the second one the corresponding fold or domain: [2. Annotation (b: assigning a fold to ESM atlas sequences)](https://github.com/nuriamimbreropelegri/TFM/blob/main/2.%20Annotation%20(b%3A%20assigning%20a%20fold%20to%20ESM%20atlas%20sequences))
-2. Create a database containing the tags and the sequences of those ESM atlas sequences that found a hit in SCOPe.: [Database with tags and sequences of the annotated ESM atlas sequences](https://github.com/nuriamimbreropelegri/TFM/blob/main/1.%20Annotation%20(c%3A%20database%20of%20annotated%20sequences))
+2. Create a database containing the tags and the sequences of those ESM atlas sequences that found a hit in SCOPe: [1. Annotation: c: Database with tags and sequences of the annotated ESM atlas sequences](https://github.com/nuriamimbreropelegri/TFM/blob/main/1.%20Annotation%20(c%3A%20database%20of%20annotated%20sequences))
   
 
