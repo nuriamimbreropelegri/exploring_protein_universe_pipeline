@@ -1,0 +1,33 @@
+import pickle
+from sklearn.cluster import DBSCAN
+import numpy as np
+import time
+
+start_time = time.time()
+lookup_se = pickle.load(open("lookup_se", 'rb'))
+
+dict_clusters = {}
+
+i=0
+for domain,X in lookup_se.items():
+    #print(X)
+    #print("type is", type(X))
+    i += 1
+    if i % 53857== 0:
+        print("Clustered",int(i)/len(lookup_se)*100,"%")
+
+    if len(X) == 1:
+        dict_clusters[domain] = [int(x[2]) for x in X]
+
+    else:
+        X = [ list(map(int, x)) for x in X]
+        dict_clusters[domain] = X
+        db = DBSCAN(eps=5, min_samples=1,n_jobs=18).fit([x[:2] for x in X]) # eps=5 is the radius. (5 aminoacids)
+        cluster_domain=[[X[index][2] for index,x in enumerate(db.labels_) if x == i] for i in np.arange(max(db.labels_)+1)]
+
+        dict_clusters[domain] = cluster_domain
+
+    
+pickle.dump(dict_clusters, open('./dict_clusters', "wb"))
+
+print(time.time()-start_time, 'seconds')
