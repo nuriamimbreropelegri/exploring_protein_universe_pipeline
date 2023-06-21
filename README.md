@@ -21,4 +21,5 @@ Code used to compute the alignment: [Code for: 1. Annotation (a: alignment )](ht
 ### COMPUTING THE ALIGNMENTS
 1. Compute an all-against-all alignment between all the annotated sequences from ESM atlas using MMseqs2 easy search: [2. All-against-all (a: MMseqs alignment)](https://github.com/nuriamimbreropelegri/TFM/blob/main/2.%20All-against-all%20alignment%20of%20ESM%20atlas)
 2. Remove alignment that correlate sequences from the same fold: [2. All-against-all (b: Filter by fold)](https://github.com/nuriamimbreropelegri/TFM/blob/main/2.%20All-against-all%20(b%3A%20Filter%20by%20fold))
-3. Add fold information from each ESM atlas sequence (using the created database containing the sequence tag and the corresponding domain) in the alignment file [2. All-against-all (c: Add fold information)](https://github.com/nuriamimbreropelegri/TFM/blob/main/2.%20All-against-all%20(c%3A%20Add%20fold%20information))
+3. Add fold information from each ESM atlas sequence (using the created database containing the sequence tag and the corresponding domain) in the alignment file:  [2. All-against-all (c: Add fold information)](https://github.com/nuriamimbreropelegri/TFM/blob/main/2.%20All-against-all%20(c%3A%20Add%20fold%20information))
+4. Filter by Filter by e-value score <10^-5, HSSP curve and alignment lenght: [2. All-against-all (d: Filtering)]
