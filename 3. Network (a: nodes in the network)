@@ -1,0 +1,9 @@
+## BASH
+
+#!/bin/bash
+#Create a file that contains only the names of the id just once to know how many nodes there will be in the network
+awk '{ a[$2]++ } END { for (b in a) { print b } }' alignment_file_clustered > unique1
+awk '{ a[$4]++ } END { for (b in a) { print b } }' alignment_file_clustered > unique2
+cat unique2 >> unique1
+awk '{ a[$1]++ } END { for (b in a) { print b } }' unique1 > nodes
+
