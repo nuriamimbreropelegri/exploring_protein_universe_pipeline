@@ -1,4 +1,5 @@
 # BASH 
+
 # Download MMseqs software 
 # CREATE DATABASES: Before searching, it is needed to convert the FASTA file containing query sequences and target sequences into a sequence DB.
 # ESM atlas foldseek data is already in a database format but SCOPe data is not. 
