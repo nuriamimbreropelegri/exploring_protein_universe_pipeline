@@ -24,4 +24,4 @@ Code used to compute the alignment: [Code for: 1. Annotation (a: alignment )](ht
 3. Add fold information from each ESM atlas sequence (using the created database containing the sequence tag and the corresponding domain) in the alignment file:  [2. All-against-all (c: Add fold information)](https://github.com/nuriamimbreropelegri/TFM/blob/main/2.%20All-against-all%20(c%3A%20Add%20fold%20information))
 4. Filter by Filter by e-value score <10^-5, HSSP curve and alignment lenght: [2. All-against-all (d: Filtering)]
 # 3. CLUSTERING THE FRAGMENTS
-1. Add an index number to each alignment result representing the hit ID [3. Clustering (a: add hit ID)]
+1. Add an index number to each alignment result representing the hit ID [3. Clustering (a: add hit ID)](https://github.com/nuriamimbreropelegri/TFM/blob/main/3.%20Clustering%20(a%3A%20add%20hit%20ID))
