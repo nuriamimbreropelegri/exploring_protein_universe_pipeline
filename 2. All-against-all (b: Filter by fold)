@@ -1,0 +1,32 @@
+import argparse
+from tqdm import tqdm  # Import tqdm for the progress bar
+
+parser = argparse.ArgumentParser(description="Create a file that contains only the alignment results of sequences from different folds")
+parser.add_argument("--fold", required=True, help="Insert the file that associates folds and sequences")
+parser.add_argument("--alignment", required=True, help="Insert the file that contains alignment results")
+parser.add_argument("--output", required=True, help="Insert the name of the new file")
+args = parser.parse_args()
+
+ass_dict = {}
+with open(args.fold, "r") as f1:
+    for line in f1:
+        columns = line.strip().split()
+        ass_dict[columns[0]] = columns[1]
+
+
+
+with open(args.alignment, "r") as f2, open(args.output, "w") as f3:
+    lines = f2.readlines()
+    with tqdm(total=len(lines), desc="Processing") as pbar:
+        for line in lines:
+            columns = line.strip().split()
+            if len(columns) >= 2:  # Add this condition to ensure at least two columns exist
+                id1 = columns[0]
+                id2 = columns[1]
+                if ass_dict.get(id1, None) != ass_dict.get(id2, None):
+                    f3.write(line)
+            else:
+                print("Skipping line:", line)  # Add this line to print problematic lines
+            pbar.update(1)
+
+print("Processing complete!")
