@@ -35,7 +35,7 @@ Code used to compute the alignment: [Code for: 1. Annotation (a: alignment )](ht
 4. Implement DBSCAN algorithm to the new file to generate a dictionary of clusters for all sequence IDs in the alignment hits: [3. Clustering: (c: Clustering data using DBSCAN algorithm)](https://github.com/nuriamimbreropelegri/TFM/blob/main/3.%20Clustering%3A%20(c%3A%20Clustering%20using%20DBSCAN%20algorithm))
 ### ADD CLUSTER INFORMATION TO THE ALIGNMENT DATABASE
 5. Using this dictionary of clusters, the database that containing all the pairwise alignments describing common fragments is modified. The modification of this dataset is based on the substitution of each sequence ID for a sequence ID that contains information about the cluster of the sequence in which each fragment belongs: [4. Clustering: (d: Add cluster information to the alignment database)](https://github.com/nuriamimbreropelegri/TFM/blob/main/3.%20Clustering%3A%20(d%3A%20Add%20cluster%20information%20to%20the%20alignment%20file))
-## 3. NETWORK CONSTRUCTION OF THE EVOLUTIONARY CONSERVED FRAGMENTS 
+## 3. NETWORK CONSTRUCTION  
 ### NODES IN THE GRAPH OF ALL THE DATA 
 1. Create a file containing the nodes of the graph. The nodes in the graph will be all the different protein sequence names in the alignment file: [3. Network (a: nodes in the network)](https://github.com/nuriamimbreropelegri/TFM/blob/main/4.%20Network%20(a%3A%20subset%20of%201%20million%20nodes))
 ### NODES IN THE GRAPH OF 1M ALIGNMENTS SUBSET
