@@ -1,1 +1,56 @@
+import time
+import pickle
+import re
 
+start_time = time.time()
+
+# Load the dictionary of clusters
+print("loading dict_clusters")
+dict_clusters = pickle.load(open('dict_clusters', 'rb'))
+print("dict_clusters_loaded")
+
+# Open the input file and output file
+with open('alignment_of_sequences_from_different_folds_with_folds_filtered_version4_filtered_by_e_value_new', 'r') as input_file, open('outputjoined_modified_good_results_2', 'w') as output_file:
+    # Process each line in the input file
+    for line in input_file:
+        
+        # Split the line into columns
+        columns = re.split(r'\t| ', line.strip())
+        
+        # Extract the hitID, queryID and targetID
+        hitID = columns[0]
+        hitID = int(hitID)
+        queryID = columns[1]
+        targetID = columns[2]
+        query_cluster_id = None
+        target_cluster_id = None
+
+        #Get the cluster ID of the query
+        if len(dict_clusters[queryID])== 1:
+            query_cluster_id = 0
+            queryID = f'{queryID}_{query_cluster_id}'
+        else:
+            query_cluster_id = [index for index,lista in enumerate(dict_clusters[queryID]) if hitID in lista][0]
+            #Modify the query ID with cluster information
+            queryID = f'{queryID}_{query_cluster_id}'
+
+
+        #Get the cluster ID of the target
+        if len(dict_clusters[targetID])== 1:
+            target_cluster_id = 0 
+            targetID = f'{targetID}_{target_cluster_id}'
+        else:
+            target_cluster_id = [index for index,lista in enumerate(dict_clusters[targetID]) if hitID in lista][0]
+            #Modify the query ID with cluster information
+            targetID = f'{targetID}_{target_cluster_id}'
+
+
+
+        # Write the modified line to the output file
+        modified_line = '\t'.join([columns[0], queryID, targetID] + columns[3:]) + '\n'
+        output_file.write(modified_line)
+
+
+    
+print(time.time()-start_time, 'seconds')
+print("ouptut file called outputjoined_modified_good_results_2 is created")
