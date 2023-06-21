@@ -1,0 +1,23 @@
+import pickle
+
+lookup_se = {}
+
+with open('alignment_of_sequences_from_different_folds_with_folds_filtered_version4_filtered_by_e_value_new') as hits:
+    for i, hit in enumerate(hits):
+        if i % 1145015 == 0:
+            print("Mapped", int(i) / 114501512 * 100, "%")
+        try:
+            hitid, query, subject, _, _, _, _, _, q_start, q_end, s_start, s_end, _ = hit.strip().split()
+            if query not in lookup_se:
+                lookup_se[query] = []
+            lookup_se[query].append([q_start, q_end, hitid])
+            if subject not in lookup_se:
+                lookup_se[subject] = []
+            lookup_se[subject].append([s_start, s_end, hitid])
+        except Exception as e:
+            "an error occurred"
+            print(e)
+            print(hit)
+
+pickle.dump(lookup_se, open('./lookup_se_good_results_2', "wb"))
+print("done")
