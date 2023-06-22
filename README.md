@@ -16,7 +16,7 @@ Code used to compute the alignment: [Code for: 1. Annotation (a: alignment )](ht
 1. Filter by e-value score <10^-5, HSSP curve and alignment lenght [1. Annotation: (b: Filtering)](https://github.com/nuriamimbreropelegri/TFM/blob/main/1.%20Annotation%20(b%3A%20filtering))
 2. Create a database containing the sequence tag and the corresponding domain: [1. Annotation (c: Assigning a fold to ESM atlas sequences)](https://github.com/nuriamimbreropelegri/TFM/blob/main/1.%20Annotation%20(c%3A%20assigning%20a%20fold%20to%20ESM%20atlas%20sequences))
 3. Create a database containing the tags and the sequences of those ESM atlas sequences that found a hit in SCOPe: [1. Annotation: d: Database with tags and sequences of the annotated ESM atlas sequences](https://github.com/nuriamimbreropelegri/TFM/blob/main/1.%20Annotation%20(d%3A%20database%20of%20annotated%20sequences))
-4. Analyze the proportion of each fold in the annotated sequences: [1. Annotation: (e: Representative fold in the annotated sequences)]
+4. Analyze the proportion of each fold in the annotated sequences: [1. Annotation: (e: Representative fold in the annotated sequences)](https://github.com/nuriamimbreropelegri/exploring_protein_universe_pipeline/blob/main/1.%20Annotation%3A%20(e%3A%20Representative%20fold%20in%20the%20annotated%20sequences))
 ## 2. ALL-AGAINST-ALL COMPARISON OF ESM ATLAS SEQUENCES
 ### COMPUTING THE ALIGNMENTS USING MMSEQS 
 1. Compute an all-against-all alignment between all the annotated sequences from ESM atlas using MMseqs2 easy search: [2. All-against-all (a: MMseqs alignment)](https://github.com/nuriamimbreropelegri/TFM/blob/main/2.%20All-against-all%20(a%3A%20MMseqs%20alignment))
