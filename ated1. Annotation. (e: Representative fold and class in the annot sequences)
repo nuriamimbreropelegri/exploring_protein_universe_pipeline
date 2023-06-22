@@ -1,0 +1,8 @@
+## BASH
+
+# REPRESENTATIVE FOLD
+cut -d ' ' -f2 association_scope_esmatlas | sort | uniq -c | sort -nr | head -n 10
+# REPRESENTATIVE CLASS
+cut -d ' ' -f2 association_scope_esmatlas | grep -Eo '[a-z]\.' | sed 's/.$//' | sort | uniq -c | sort -nr
+
+
