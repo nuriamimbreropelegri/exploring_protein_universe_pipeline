@@ -1,0 +1,1 @@
+cut -d ' ' -f2 association_scope_esmatlas | sort | uniq -c | sort -nr | head -n 10
