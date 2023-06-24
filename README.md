@@ -45,4 +45,4 @@ Code used to compute the alignment: [Code for: 1. Annotation (a: alignment )](ht
 ### NETWORK OF THE MAJOR COMPONENT ALL THE EVOLUTIONARY CONSERVED FRAGMENTS
 4. Create a network representation of the major component of the network of all the evolutionary conserved fragments in the annotated sequences from ESM atlas subset MGnfigy30: [4. Network (d: Graph of the major component of the evolutionary conserved fragments)](https://github.com/nuriamimbreropelegri/exploring_protein_universe_pipeline/blob/main/4.%20Network%20(d%3A%20Graph%20of%20the%20major%20component%20of%20the%20evolutionary%20conserved%20fragments))
 ## 5. ANALYSIS OF THE NETWORK
-Analyze the data extracted from the network by determining the most connected fragments in the graph. [5. Analysis of the network](https://github.com/nuriamimbreropelegri/exploring_protein_universe_pipeline/blob/main/5.%20Analysis%20the%20network)
+Analyze the data extracted from the network by determining the most connected fragments in the graph. [5. Analysis of the network](https://github.com/nuriamimbreropelegri/exploring_protein_universe_pipeline/blob/main/5.%20Analysis%20of%20the%20network)
