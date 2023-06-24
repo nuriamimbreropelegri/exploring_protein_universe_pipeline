@@ -37,7 +37,7 @@ Code used to compute the alignment: [Code for: 1. Annotation (a: alignment )](ht
 4. Using this dictionary of clusters, the database that containing all the pairwise alignments describing common fragments is modified. The modification of this dataset is based on the substitution of each sequence ID for a sequence ID that contains information about the cluster of the sequence in which each fragment belongs: [4. Clustering: (d: Add cluster information to the alignment database)](https://github.com/nuriamimbreropelegri/TFM/blob/main/3.%20Clustering%3A%20(d%3A%20Add%20cluster%20information%20to%20the%20alignment%20file))
 ## 4. NETWORK CONSTRUCTION  
 ### NODES IN THE GRAPH OF ALL THE DATA 
-1. Create a file containing the nodes of the graph. The nodes in the graph will be all the different protein sequence names in the alignment file: [4. Network (a: nodes in the network)](https://github.com/nuriamimbreropelegri/TFM/blob/main/3.%20Network%20(a%3A%20nodes%20in%20the%20network))
+1. Create a file containing the nodes of the graph. The nodes in the graph will be all the different protein sequence names in the alignment file: [4. Network (a: nodes in the network)](https://github.com/nuriamimbreropelegri/exploring_protein_universe_pipeline/blob/main/4.%20Network%20(a%3A%20nodes%20in%20the%20network)
 ### NODES IN THE GRAPH OF 1M ALIGNMENTS SUBSET
 2. Create a file containing the nodes of a subset of the alignment file (the first 1M alignments): [4. Network (b: nodes in the subset network)](https://github.com/nuriamimbreropelegri/TFM/blob/main/3.%20Network%20(b:%20nodes%20in%20the%20subset%20network))
 ### NETWORK REPRESENTATION OF A SUBSET OF 1M ALIGNMENT HITS 
