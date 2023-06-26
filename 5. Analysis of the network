@@ -10,7 +10,7 @@ rm temp_ids
 ## Calculate the number of components in the graph
 import matplotlib.pyplot as plt
 comp, a = label_components(graph)
-num_componens = comp.a.max() + 
+num_componens = comp.a.max() + 1
 
 ## Calculate the number of nodes in the graph
 frag = [i for i, x in enumerate(comp.a)]
