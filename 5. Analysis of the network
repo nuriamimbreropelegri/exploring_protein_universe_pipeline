@@ -6,7 +6,33 @@ sort temp_ids | uniq -c | sort -k1 -nr | head -10
 rm temp_ids
 
 ### PYTHON
+
 ## Calculate the number of components in the graph
 import matplotlib.pyplot as plt
 comp, a = label_components(graph)
-num_componens = comp.a.max() + 1
+num_componens = comp.a.max() + 
+
+## Calculate the number of nodes in the graph
+frag = [i for i, x in enumerate(comp.a)]
+print(len(frag))
+
+## Calculate the number of nodes of the major component
+comp, hist = label_components(graph)
+plt.plot(hist)
+len(comp.a)
+
+
+## Calculate the most connected node and the number of connections it has
+degrees = graph.degree_property_map("total")
+max_degree = 0
+max_node = None
+
+
+for v in graph.vertices():
+    degree = degrees[v]
+    if degree > max_degree:
+        max_degree = degree
+        max_node = v
+    
+print("most connected node:", graph.vp.cluster[max_node])
+print(max_degree)
