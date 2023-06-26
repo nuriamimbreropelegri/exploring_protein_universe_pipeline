@@ -1,5 +1,12 @@
 ### BASH
+## Calculate the most conserved fragment 
 cut -f2 alignment_file_clustered >> temp_ids
 cut -f4 alignment_file_clustered >> temp_ids
 sort temp_ids | uniq -c | sort -k1 -nr | head -10
 rm temp_ids
+
+### PYTHON
+## Calculate the number of components in the graph
+import matplotlib.pyplot as plt
+comp, a = label_components(graph)
+num_componens = comp.a.max() + 1
