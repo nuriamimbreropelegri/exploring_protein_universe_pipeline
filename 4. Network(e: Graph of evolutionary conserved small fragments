@@ -1,0 +1,85 @@
+### BASH
+#remove alignment higher than 80 aa
+awk '$9 <=80' alignment_file_clustered > alignment_file_clustered_lenght_lower_than_80
+
+# calculate the most connected node
+cut -f2 alignment_file_clustered_lenght_lower_than_80 >> temp_ids
+cut -f4 alignment_file_clustered_lenght_lower_than_80 >> temp_ids
+sort temp_ids | uniq -c | sort -k1 -nr | head -30 > most_repeated_fragments_less_80
+rm temp_ids
+
+
+### PYTHON
+#number of nodes in the graph
+comp, a = label_components(graph)
+len(comp.a)
+
+#plot the number of connections of each component 
+import matplotlib.pyplot as plt
+comp, a = label_components(graph)
+comp, hist = label_components(graph)
+plt.plot(hist)
+
+
+#calculate the number of components in the graph
+num_componens = comp.a.max() + 1
+print(num_componens)
+
+## calculate the most connected node and the number of links it has
+max_degree = 0
+max_node = None
+
+
+for v in graph.vertices():
+    degree = degrees[v]
+    if degree > max_degree:
+        max_degree = degree
+        max_node = v
+    
+print("most connected node:", graph.vp.cluster[max_node])
+print(max_degree)
+
+
+
+#calculate the number of the component that have the most connections
+from graph_tool.all import *
+import numpy as np
+
+# ... Rest of your code ...
+
+# Calculate the components
+comp, _ = label_components(graph)
+# Convert component labels to integers
+comp_array = np.array(comp.a, dtype=int)
+
+# Count the number of nodes in each component
+component_sizes = np.bincount(comp_array)
+
+# Find the component with the maximum number of nodes
+largest_component_id = np.argmax(component_sizes)
+largest_component_size = component_sizes[largest_component_id]
+
+print("Component with the largest number of nodes:")
+print("Component ID:", largest_component_id)
+print("Number of nodes:", largest_component_size)
+
+
+# Represent the major component
+import time
+start_time = time.time()
+
+
+vfilt = graph.new_vertex_property('bool')
+frag = [i for i, x in enumerate(comp.a) if x == 33]
+for i in frag:
+    vfilt[i] = True
+sub = GraphView(graph, vfilt)
+graph_draw(sub, vertex_color=graph.vp.node_color, vertex_fill_color=graph.vp.node_color)
+
+
+
+print(time.time()-start_time)
+
+## Draw the graph of all the alignments with a lenght between 20 and 80 amino acids
+graph_draw(graph, vertex_color=graph.vp.node_color, vertex_fill_color=graph.vp.node_color)
+
