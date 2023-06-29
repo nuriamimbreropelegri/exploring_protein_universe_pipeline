@@ -44,8 +44,8 @@ Code used to compute the alignment: [Code for: 1. Annotation (a: alignment )](ht
 3. Create a network representation of the 1M alignment hits subset: [4. Network (c: Graph of the 1M alignments subset)](https://github.com/nuriamimbreropelegri/exploring_protein_universe_pipeline/blob/main/4.%20Network%20(c%3A%20Graph%20of%20the%201M%20alignments%20subset))
 ### NETWORK OF THE MAJOR COMPONENT ALL THE EVOLUTIONARY CONSERVED FRAGMENTS
 4. Create a network representation of the major component of the network of all the evolutionary conserved fragments in the annotated sequences from ESM atlas subset MGnfigy30: [4. Network (d: Graph of the major component of the evolutionary conserved fragments)](https://github.com/nuriamimbreropelegri/exploring_protein_universe_pipeline/blob/main/4.%20Network%20(d%3A%20Graph%20of%20the%20major%20component%20of%20the%20evolutionary%20conserved%20fragments))
+### ANALYSIS OF THE NETWORK
+5. Analyze the data extracted from the network by determining the most connected fragments in the graph. [4. Network(e:Analysis of the network)[https://github.com/nuriamimbreropelegri/exploring_protein_universe_pipeline/blob/main/4.%20Network%20(e%3A%20Analysis%20of%20the%20network)]
 ### NETWORK OF ALL THE DATA AND OF THE MAJOR COMPONENT OF EVOLUTIONARIY CONSERVED SMALL FRAGMENTS (FROM 20 TO 80 AA)
-6. Create a network representation of pairwise alignments of only alignment lenghts between 20 and 80 amino acids to identify small fragments.[4. Network(e: Graph of evolutionary conserved small fragments)[https://github.com/nuriamimbreropelegri/exploring_protein_universe_pipeline/tree/main]
+6. Create a network representation of pairwise alignments of only alignment lenghts between 20 and 80 amino acids to identify small fragments.[4. Network(f: Graph of evolutionary conserved small fragments)[https://github.com/nuriamimbreropelegri/exploring_protein_universe_pipeline/blob/main/4.%20Network(%20f:%20Graph%20of%20evolutionary%20conserved%20small%20fragments]
 
-## 5. ANALYSIS OF THE NETWORK
-Analyze the data extracted from the network by determining the most connected fragments in the graph. [5. Analysis of the network](https://github.com/nuriamimbreropelegri/exploring_protein_universe_pipeline/blob/main/5.%20Analysis%20of%20the%20network)
