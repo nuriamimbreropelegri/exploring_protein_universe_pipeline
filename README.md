@@ -27,7 +27,7 @@ Code used to compute the alignment: [Code for: 1. Annotation (a: alignment )](ht
 ### FILTER 
 4. Filter by Filter by e-value score <10^-5, HSSP curve and alignment lenght: [2. All-against-all (d: Filtering)](https://github.com/nuriamimbreropelegri/TFM/blob/main/2.%20All-against-all%20(d%3A%20Filtering))
 ### ANALYSIS 
-5. The pairwise alignment results are analyzed in order to study the following parameters: alignment lenght, e-value, percentage of identity. [2. All-against-all (e: Analysis)](https://github.com/nuriamimbreropelegri/exploring_protein_universe_pipeline/new/main)
+5. The pairwise alignment results are analyzed in order to study the following parameters: alignment lenght, e-value, percentage of identity. [2. All-against-all (e: Analysis)](https://github.com/nuriamimbreropelegri/exploring_protein_universe_pipeline/blob/main/2.%20All-against-all%20(e%3A%20Analysis))
 ## 3. CLUSTERING THE FRAGMENTS
 ### ADD HIT ID
 1. Add an index number to each alignment result representing the hit ID [3. Clustering (a: add hit ID)](https://github.com/nuriamimbreropelegri/TFM/blob/main/3.%20Clustering%20(a%3A%20add%20hit%20ID))
