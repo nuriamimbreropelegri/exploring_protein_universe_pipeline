@@ -1,0 +1,88 @@
+### R
+## Bar plot of the lenght of the alignments
+# Check if ggplot2 is already installed, otherwise install it
+if (!require("ggplot2")) {
+  install.packages("ggplot2")
+  library("ggplot2")
+}
+
+# Create a data frame with the new table values
+data <- data.frame(
+  Interval = c("0 < length ≤ 50", "50 < length ≤ 100", "100 < length ≤ 150", "150 < length ≤ 200", "200 < length ≤ 250", "250 < length ≤ 300",
+               "300 < length ≤ 350", "350 < length ≤ 400", "400 < length ≤ 450"),
+  Frequency = c(1660099, 15788624, 18118324, 19994584, 13222308, 8934138, 6053300, 4040276, 2825209)
+)
+
+# Set the levels of the Interval variable as an ordered factor
+data$Interval <- factor(data$Interval, levels = data$Interval)
+
+# Define a vector of colors
+colors <- c("#9999FF", "#9999FF", "#9999FF", "#9999FF", "#9999FF", "#9999FF", "#9999FF", "#9999FF", "#9999FF")
+
+# Create a bar plot with different colors for each bar
+ggplot(data, aes(x = Interval, y = Frequency, fill = Interval)) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(values = colors) +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(x = "Lenght of the alignment", y = "Number of hit fragments", title = "FREQUENCY DISTRIBUTION OF THE LENGHT OF THE FRAGMENTS")
+
+## Bar plot of the percentage of identity of the alignments
+# Check if ggplot2 is already installed, otherwise install it
+if (!require("ggplot2")) {
+  install.packages("ggplot2")
+  library("ggplot2")
+}
+
+# Create a data frame with the table values
+data <- data.frame(
+  Interval = c("0 < identity ≤ 0.1", "0.1 < identity ≤ 0.15", "0.15 < identity ≤ 0.2", "0.2 < identity ≤ 0.25",
+               "0.25 < identity ≤ 0.3", "0.3 < identity ≤ 0.35", "0.35 < identity ≤ 0.4", "0.4 < identity ≤ 0.45",
+               "0.45 < identity ≤ 0.5", "0.5 < identity ≤ 0.55", "0.55 < identity ≤ 0.6", "0.6 < identity ≤ 0.65",
+               "0.65 < identity ≤ 0.7", "0.7 < identity ≤ 0.75", "0.75 < identity ≤ 0.8", "0.8 < identity ≤ 0.85",
+               "0.85 < identity ≤ 0.9", "0.9 < identity ≤ 0.95", "0.95 < identity ≤ 1"),
+  Frequency = c(0, 0, 3886, 918808, 918808, 16809684, 20273965, 18206159, 13686944, 8362356, 4822056,
+                2435469, 2449130, 602426, 290375, 141860, 78611, 43697, 10000)
+)
+
+# Set the levels of the Interval variable as an ordered factor
+data$Interval <- factor(data$Interval, levels = data$Interval)
+
+# Define the color for the bars
+bar_color <- "#40A769"
+
+# Create a bar plot with the specified color for all bars
+ggplot(data, aes(x = Interval, y = Frequency)) +
+  geom_bar(stat = "identity", fill = bar_color) +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(x = "Identity (0-1)", y = "Number of hit fragments", title = "FREQUENCY DISTRIBUTION OF THE IDENTITY OF THE FRAGMENTS IN THE HITS")
+
+## Bar plot of the percentage of the e-value of the alignments
+# Check if ggplot2 is already installed, otherwise install it
+if (!require("ggplot2")) {
+  install.packages("ggplot2")
+  library("ggplot2")
+}
+
+# Create a data frame with the table values
+data <- data.frame(
+  Interval = c("1E-10 < e-value ≤ 0.00001", "1E-20 < e-value ≤ 1E-10", "1E-30 < e-value ≤ 1E-20",
+               "1E-40 < e-value ≤ 1E-30", "1E-50 < e-value ≤ 1E-40", "1E-60 < e-value ≤ 1E-60",
+               "1E-70 < e-value ≤ 1E-60", "1E-80 < e-value ≤ 1E-70", "1E-100 < e-value ≤ 1E-90",
+               "1E-90 < e-value ≤ 1E-80"),
+  Frequency = c(12076910, 21596603, 16731456, 12735729, 9432990, 6638336, 4665414, 3275853, 2342411, 1677303)
+)
+
+# Set the levels of the Interval variable as an ordered factor
+data$Interval <- factor(data$Interval, levels = data$Interval)
+
+# Define the color for the bars
+bar_color <- "#76CAD1"
+
+# Create a bar plot with the specified color for all bars
+ggplot(data, aes(x = Interval, y = Frequency)) +
+  geom_bar(stat = "identity", fill = bar_color) +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(x = "e-value", y = "Number of fragments", title = "FREQUENCY DISTRIBUTION OF THE e-value")
